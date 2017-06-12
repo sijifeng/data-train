@@ -33,6 +33,7 @@ public class Consumer extends ShutdownableThread {
 
     @Override
     public void doWork() {
+        System.out.println("doWork");
         consumer.subscribe(Collections.singletonList(this.topic));
         ConsumerRecords<Integer, String> records = consumer.poll(1000);
         for (ConsumerRecord<Integer, String> record : records) {

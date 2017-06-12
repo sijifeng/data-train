@@ -36,6 +36,7 @@ public class Producer extends Thread {
                 producer.send(new ProducerRecord<>(topic,
                         messageNo,
                         messageStr), new DemoCallBack(startTime, messageNo, messageStr));
+
             } else { // Send synchronously
                 try {
                     producer.send(new ProducerRecord<>(topic,
@@ -47,6 +48,12 @@ public class Producer extends Thread {
                 }
             }
             ++messageNo;
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
