@@ -1,9 +1,9 @@
-package com.season.streaming.scala.demo
+package com.season.streaming.scala.kafka
 
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
-import org.apache.log4j.{Level, Logger}
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * Created by jiyc on 2017/6/12.

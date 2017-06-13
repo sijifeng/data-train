@@ -1,19 +1,25 @@
-package com.season.storm.spout;
+package com.season.storm.wordcount;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Map;
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.IRichSpout;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Map;
+
 /**
  * Created by jiyc on 2017/6/11.
  */
 public class WordReader implements IRichSpout {
+    private Logger logger = LoggerFactory.getLogger(WordReader.class);
+
     private static final long serialVersionUID = 1L;
     private SpoutOutputCollector collector;
     private FileReader fileReader;
@@ -50,6 +56,7 @@ public class WordReader implements IRichSpout {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
+                e.printStackTrace();
                 // Do nothing
             }
             return;

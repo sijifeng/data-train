@@ -1,16 +1,22 @@
-package com.season.storm.bolt;
+package com.season.storm.wordcount;
 
-import java.util.HashMap;
-import java.util.Map;
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.IRichBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.tuple.Tuple;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by jiyc on 2017/6/11.
  */
 public class WordCounter implements IRichBolt {
+    private Logger logger = LoggerFactory.getLogger(WordCounter.class);
+
     Integer id;
     String name;
     Map<String, Integer> counters;
